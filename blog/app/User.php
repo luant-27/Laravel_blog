@@ -39,4 +39,11 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
+    public function role(){
+        return $this->belongsToMany('App\Role', 'role_user');
+    }
+
+    public function phone(){
+        return $this->hasMany('App\Phone');
+    }
 }

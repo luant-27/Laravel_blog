@@ -13,13 +13,13 @@
     
     
     <div class="content-grid">	
-        <form method="get" action="{{ route('search') }}">            
-            <label>Id:</label><br>
+        <form method="get" action="{{ route('search2') }}">            
+            <label>User Id:</label><br>
             <input type="text" id="id" name="id"><br>
-            <label>Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label>Class:</label><br>
-            <input type="text" id="class" name="class"><br>            
+            <label>Phone:</label><br>
+            <input type="text" id="phone" name="phone"><br>
+            <label>Role:</label><br>
+            <input type="text" id="role" name="role"><br>            
             <input type="submit" value="Search">
         </form>                      
         
@@ -27,14 +27,14 @@
         <table style="width:100%">
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Class</th>
+                <th>Phone</th>
+                <th>Role</th>
             </tr>
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->class }}</td>
+                <td>@foreach($user->phone as $user_phone) {{ $user_phone->number }}   @endforeach</td>
+                <td>@foreach($user->role as $user_role) {{ $user_role->name }}   @endforeach</td>
             </tr>
             @endforeach          
         </table>
